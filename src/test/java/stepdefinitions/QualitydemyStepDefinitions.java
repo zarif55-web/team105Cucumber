@@ -17,12 +17,14 @@ public class QualitydemyStepDefinitions {
 
     @Then("kullanici kutusuna {string} yazar")
     public void kullanici_kutusuna_yazar(String istenenUsername) {
+        qualitydemyPage= new QualitydemyPage();
 
         qualitydemyPage.kullaniciEmailKutusu.sendKeys(ConfigReader.getProperty(istenenUsername));
 
     }
     @Then("password kutusuna {string} yazar")
     public void password_kutusuna_yazar(String istenenPassword) {
+        qualitydemyPage= new QualitydemyPage();
 
         qualitydemyPage.passwordKutusu.sendKeys(ConfigReader.getProperty(istenenPassword));
     }
@@ -34,7 +36,6 @@ public class QualitydemyStepDefinitions {
     }
     @Then("cookie butonuna click yapar")
     public void cookieButonunaClickYapar() {
-
         qualitydemyPage.cookieButonu.click();
     }
     @Then("basarili giris yapildigini test eder")
