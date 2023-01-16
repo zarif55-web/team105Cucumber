@@ -3,6 +3,8 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import pages.QualitydemyPage;
 import utilities.ConfigReader;
 
@@ -59,4 +61,10 @@ public class QualitydemyStepDefinitions {
     public void passwordKutusunaManuelOlarakYazar(String password) {
         qualitydemyPage.passwordKutusu.sendKeys(password);
     }
+
+    @And("login butonu uzerine gelir")
+    public void loginButonuUzerineGelir() {
+
+    }
+
 }

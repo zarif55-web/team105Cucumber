@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.WebUniversityPage;
@@ -11,7 +12,7 @@ public class WebUniversityStepdefinitions {
 
     WebUniversityPage webUniversityPage= new WebUniversityPage();
     String ilkSayfaHandleDegeri;
-
+    Faker faker= new Faker();
 
     @Then("Login Portal elementine kadar asagi iner")
     public void login_portal_elementine_kadar_asagi_iner() {
@@ -38,7 +39,15 @@ public class WebUniversityStepdefinitions {
         Driver.getDriver().switchTo().window(ikinciSayfaHandleDegeri);
 
     }
+    @Then("username kutusuna deger yazar")
+    public void username_kutusuna_deger_yazar() {
 
+        webUniversityPage.userNameKutusu.sendKeys(faker.name().username());
+    }
+    @Then("password kutusuna deger yazar")
+    public void password_kutusuna_deger_yazar() {
+        webUniversityPage.passwordKutusu.sendKeys(faker.internet().password());
+    }
     @Then("webuniversity login butonuna basar")
     public void webuniversity_login_butonuna_basar() {
         webUniversityPage.loginButonu.click();

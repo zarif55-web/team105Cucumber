@@ -13,8 +13,8 @@ public class AmazonStepDefinitions {
 
     AmazonPage amazonPage= new AmazonPage();
 
-    @Given("kullanici amazon anasayfaya gider")
-    public void kullaniciAmazonAnasayfayaGider() {
+    @Given("kullanici amazon sayfaya gider")
+    public void kullaniciAmazonSayfayaGider() {
         Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
     }
     @Then("amazon arama kutusuna Nutella yazip aratir")
@@ -101,5 +101,15 @@ public class AmazonStepDefinitions {
 
 
         Assert.assertTrue(actualAramaSonucu.contains(arananKelime));
+    }
+    @And("acilan tum sayfalari kapatir")
+    public void acilanTumSayfalariKapatir() {
+        Driver.quitDriver();
+    }
+
+
+    @Given("kullanici amazon anasayfaya gider")
+    public void kullaniciAmazonAnasayfayaGider() {
+        Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
     }
 }
